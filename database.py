@@ -1,7 +1,17 @@
 import databases
+import dotenv
 import sqlalchemy
+import os
 # DATABASE_URL = 'postgresql://postgres:1480@localhost:5432/svik_todo'
-DATABASE_URL = "postgresql://mdjnomabkuyoia:c72646976db2aa6442194944f156f6ba653a2cf1985b216943061ed56b369e2d@ec2-52-71-69-66.compute-1.amazonaws.com:5432/d2tn02fcccm2mf"
+
+username = dotenv.get_key("./.env","USERNAME")
+password = dotenv.get_key("./.env","PASSWORD")
+host = dotenv.get_key("./.env","HOST")
+port = dotenv.get_key("./.env","PORT")
+database_name = dotenv.get_key("./.env","DATABASE_NAME")
+
+
+DATABASE_URL = 'postgresql://{username}:{password}@{host}:5432/{database_name}'.format(username=username,password=password,host=host,port=port,database_name=database_name)
 
 
 database = databases.Database(DATABASE_URL)
