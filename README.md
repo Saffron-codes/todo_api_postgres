@@ -70,19 +70,3 @@
   }
 ]
 ```
-#### Note : Database.py file is ignored in respository due to database privacy issues. It typically looks like this...
-
-```python
-import databases
-import sqlalchemy
-DATABASE_URL = 'postgresql://username:password@localhost:5432/database_name'
-
-
-database = databases.Database(DATABASE_URL)
-metadata = sqlalchemy.MetaData()
-engine = sqlalchemy.create_engine(
-DATABASE_URL,pool_size=3, max_overflow=0
-)
-conn = engine.connect()
-metadata.create_all(engine)
-```
