@@ -1,6 +1,5 @@
 from distutils.util import execute
 from fastapi import FastAPI, HTTPException, status
-from soupsieve import select
 from database import *
 from schemas import *
 from models import Todo, TodoIn, User
