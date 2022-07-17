@@ -24,7 +24,9 @@ async def shutdown():
 async def home():
     return "Hello World";
 
-
+@app.get('/favicon.ico')
+async def home():
+    return "Hello World";
 
 @app.post('/register')
 async def Register(user:User):
