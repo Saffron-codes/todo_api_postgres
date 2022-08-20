@@ -45,9 +45,9 @@ async def Register(user:User):
 
 
 @app.get('/notes')
-async def getTodos(user_id:int):
+async def getTodos(user_id:int,password:str):
     userTodos = []
-    query = "select id,description from users inner join todos on users.user_id = {s} and todos.user_id = {s}".format(s=user_id)
+    query = "select id,description from users inner join todos on users.user_id = {s} and todos.user_id = {s} and users.password ='{password}'".format(s=user_id,password=str(password))
     # print(query)
     results =  conn.execute(query)
     for rows in results:

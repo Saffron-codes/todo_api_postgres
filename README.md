@@ -55,7 +55,7 @@
 
 ## Get User Todos
 ```
-/notes/&user_id=2
+/notes/&user_id=2&password=123456
 ```
 - returns a list of json 
 ```json
